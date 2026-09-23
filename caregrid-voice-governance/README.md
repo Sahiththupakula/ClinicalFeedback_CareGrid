@@ -4,6 +4,9 @@ An open-source reference implementation for governed post-care voice feedback, t
 
 https://caregrid-voice-governance-demo.sahiththupakula.chatgpt.site/
 
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/fa8998fa-a807-41d5-81d4-01e51ddcb5c9" />
+
+
 > **Status:** Demonstration software using synthetic data. Not for clinical use, emergency response, production PHI, provider ranking or regulatory decision-making.
 
 ## What is included
