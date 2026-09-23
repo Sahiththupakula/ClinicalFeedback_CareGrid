@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CareGrid governed post-care voice feedback demo" />
+    <title>CareGrid Voice Governance Demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#">Care<span>Grid</span></a>
+      <nav aria-label="Primary navigation">
+        <a href="#feedback">Voice agent</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#dashboard">Live dashboard</a>
+        <a href="#governance">Governance</a>
+      </nav>
+      <div class="status"><i></i> Demo environment</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">OPEN GOVERNANCE INFRASTRUCTURE</p>
+          <h1>Every care experience,<br /><span>made accountable.</span></h1>
+          <p class="lede">A governed voice agent that converts post-care conversations and traceable public data into reviewable quality evidence.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#feedback">Try the guided interview</a>
+            <a class="button secondary" href="#architecture">Explore architecture</a>
+          </div>
+        </div>
+        <div class="principle-card">
+          <p class="mini-label">CORE REPORTING PRINCIPLE</p>
+          <strong>One report is a signal.</strong>
+          <span>Repeated, corroborated evidence becomes a trend.</span>
+          <div class="separation">
+            <small>Patient voice</small><b>+</b><small>Public evidence</small><b>+</b><small>Human review</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="architecture">
+        <div class="section-heading">
+          <div><p class="eyebrow">SYSTEM MAP</p><h2>Governed from conversation to action</h2></div>
+          <p>Operational flow and evidence provenance remain visible at every stage.</p>
+        </div>
+        <div class="pipeline">
+          <article><span>01</span><b>Listen</b><small>Phone · Web · Mobile</small></article>
+          <i>→</i>
+          <article><span>02</span><b>Understand</b><small>Speech · Language · Intent</small></article>
+          <i>→</i>
+          <article class="anchor"><span>03</span><b>Govern</b><small>Questionnaire · Safety · Policy</small></article>
+          <i>→</i>
+          <article><span>04</span><b>Evidence</b><small>Transcript · Source · Confidence</small></article>
+          <i>→</i>
+          <article><span>05</span><b>Report</b><small>Dashboard · Review · Action</small></article>
+        </div>
+      </section>
+
+      <section id="feedback" class="workspace-grid">
+        <article class="panel agent-panel">
+          <div class="panel-title">
+            <div><p class="eyebrow">PATIENT VOICE</p><h2>Guided feedback session</h2></div>
+            <span class="secure">Consent required</span>
+          </div>
+
+          <form id="start-form" class="setup-form">
+            <label>Provider
+              <select id="provider-select" required></select>
+            </label>
+            <label>Specialty module
+              <select id="specialty-select">
+                <option value="primary_care">Primary care</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="orthopedics">Orthopedics</option>
+                <option value="behavioral_health">Behavioral health</option>
+                <option value="telehealth">Telehealth</option>
+              </select>
+            </label>
+            <label>Language
+              <select id="language-select">
+                <option value="en-US">English</option>
+                <option value="es-US">Español</option>
+              </select>
+            </label>
+            <label class="consent"><input id="consent" type="checkbox" /> I consent to this demonstration storing my responses.</label>
+            <button class="button primary" type="submit">Start governed session</button>
+          </form>
+
+          <div id="conversation" class="conversation hidden">
+            <div class="agent-state"><span class="pulse"></span><b>CareGrid agent</b><small id="session-state">Listening securely</small></div>
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <form id="answer-form" class="answer-form">
+              <textarea id="answer" rows="3" placeholder="Speak or type your response…" required></textarea>
+              <div>
+                <button id="voice-button" class="voice-button" type="button" aria-label="Use microphone">◉ Use microphone</button>
+                <button class="button primary" type="submit">Submit response</button>
+              </div>
+            </form>
+            <p class="boundary">CareGrid does not diagnose, provide medical advice, or replace emergency services.</p>
+          </div>
+        </article>
+
+        <aside id="evidence" class="panel evidence-panel">
+          <div class="panel-title"><div><p class="eyebrow">TRACEABILITY</p><h2>Evidence ledger</h2></div><span id="ledger-count">0 records</span></div>
+          <div id="evidence-list" class="evidence-list">
+            <div class="empty-state">Complete a response to create a traceable patient-voice record.</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="dashboard" class="dashboard-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">CONTINUOUS QUALITY VIEW</p><h2>Live CareGrid dashboard</h2></div>
+          <div class="live"><i></i> Live evidence stream</div>
+        </div>
+        <div id="stat-grid" class="stat-grid"></div>
+        <div class="dashboard-grid">
+          <article class="panel domains-card">
+            <div class="panel-title"><div><p class="eyebrow">QUESTIONNAIRE DOMAINS</p><h3>Patient-experience signals</h3></div><small>Not a provider ranking</small></div>
+            <div id="domain-grid" class="domain-grid"></div>
+          </article>
+          <article class="panel source-card">
+            <div class="panel-title"><div><p class="eyebrow">PUBLIC CONTEXT</p><h3>Validated sources</h3></div></div>
+            <div class="source-flow">
+              <div><b>CMS Care Compare</b><small>Quality measures</small></div>
+              <span>→</span>
+              <div><b>NPI matching</b><small>Provider identity</small></div>
+              <span>→</span>
+              <div><b>CareGrid schema</b><small>Normalized evidence</small></div>
+            </div>
+            <p>Public measures are time-stamped and displayed separately from patient-reported experience.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="governance" class="governance">
+        <div class="section-heading">
+          <div><p class="eyebrow">PUBLIC GOVERNANCE</p><h2>Controls are part of the product</h2></div>
+          <p>Review boundaries are implemented, documented, testable, and open to public scrutiny.</p>
+        </div>
+        <div class="governance-grid">
+          <article><span>01</span><h3>Questionnaire governance</h3><p>Versioned questions, specialty modules, required fields and change review.</p></article>
+          <article><span>02</span><h3>Safety controls</h3><p>Deterministic emergency rules, clinical boundaries and human escalation.</p></article>
+          <article><span>03</span><h3>Evidence provenance</h3><p>Source spans, transformations, confidence and integrity verification.</p></article>
+          <article><span>04</span><h3>Public reporting</h3><p>Minimum samples, visible methodology, correction rights and no automatic findings.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <b>CareGrid</b><span>Open reference demo · Synthetic data only · Not for clinical use</span>
+    </footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

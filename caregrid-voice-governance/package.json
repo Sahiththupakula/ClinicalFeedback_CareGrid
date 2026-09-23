@@ -1,0 +1,17 @@
+{
+  "name": "caregrid-voice-governance",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-source reference demo for governed post-care voice feedback and public quality reporting.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

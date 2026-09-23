@@ -1,0 +1,26 @@
+[
+  {
+    "id": "org-lakeside-primary",
+    "npi": "1234567890",
+    "name": "Lakeside Primary Care",
+    "city": "Tampa",
+    "state": "FL",
+    "specialty": "Primary Care"
+  },
+  {
+    "id": "org-gulf-cardiology",
+    "npi": "2345678901",
+    "name": "Gulf Cardiology Associates",
+    "city": "Wesley Chapel",
+    "state": "FL",
+    "specialty": "Cardiology"
+  },
+  {
+    "id": "org-harbor-behavioral",
+    "npi": "3456789012",
+    "name": "Harbor Behavioral Health",
+    "city": "Orlando",
+    "state": "FL",
+    "specialty": "Behavioral Health"
+  }
+]

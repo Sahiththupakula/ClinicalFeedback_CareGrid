@@ -1,0 +1,26 @@
+[
+  {
+    "providerId": "org-lakeside-primary",
+    "domain": "access",
+    "measure": "Timely appointment access",
+    "value": 82,
+    "effectiveDate": "2026-06-30",
+    "sourceRecordId": "demo-cms-001"
+  },
+  {
+    "providerId": "org-lakeside-primary",
+    "domain": "communication",
+    "measure": "Communication composite",
+    "value": 88,
+    "effectiveDate": "2026-06-30",
+    "sourceRecordId": "demo-cms-002"
+  },
+  {
+    "providerId": "org-gulf-cardiology",
+    "domain": "outcome",
+    "measure": "Follow-up coordination",
+    "value": 84,
+    "effectiveDate": "2026-06-30",
+    "sourceRecordId": "demo-cms-003"
+  }
+]
