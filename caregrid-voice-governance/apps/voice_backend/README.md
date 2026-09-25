@@ -1,13 +1,21 @@
-# CareGrid voice backend
+# CareGrid cloud voice backend
 
-This backend follows the Azure ART Accelerator patterns for a cloud voice pipeline:
+This backend follows the Azure ART Accelerator separation of channel, transport, inference, and governance:
 
-- FastAPI server for REST + WebSocket endpoints
-- Azure Speech adapter for STT/TTS or local fallback mode
-- governance adapter for deterministic safety, questionnaire, and evidence rules
-- ready for ACS, Azure OpenAI, Redis, and Container Apps deployment
+```text
+Browser/ACS → FastAPI WebSocket → Speech adapter → constrained response layer → CareGrid governance
+```
 
-## Quick start
+## Current cloud slice
+
+- Azure Speech STT/TTS adapter with local fallback
+- Optional Azure OpenAI response phrasing with strict action/question validation
+- Deterministic CareGrid safety and questionnaire rules remain authoritative
+- REST and WebSocket session lifecycle
+- Evidence SHA-256 integrity hashes
+- Contract tests for consent, escalation, WebSocket lifecycle, and prompt-injection resistance
+
+## Run
 
 ```bash
 cd caregrid-voice-governance
@@ -17,19 +25,15 @@ pip install -r apps/voice_backend/requirements.txt
 uvicorn apps.voice_backend.main:app --host 0.0.0.0 --port 8010 --reload
 ```
 
-## Endpoints
+Run tests:
 
-- `/health`
-- `/api/v1/health`
-- `/api/v1/sessions`
-- `/api/v1/sessions/{session_id}/messages`
-- `/api/v1/realtime/conversation` (WebSocket)
-- `/api/v1/media/stream` (WebSocket)
+```bash
+pytest apps/voice_backend/test_main.py
+```
 
-## Azure deployment notes
+## Modes
 
-Use Azure ART Accelerator patterns:
+- `CLOUD_MODE=speech_cascade`: Azure Speech STT → constrained response layer → Azure Speech TTS
+- `CLOUD_MODE=voice_live`: reserved for the Azure Voice Live adapter; do not enable until that adapter is configured and tested
 
-- SpeechCascade: Azure Speech STT + Azure OpenAI + Azure Speech TTS
-- VoiceLive: Azure Voice Live SDK for lower-latency realtime mode
-- ACS: Add phone and media streaming when the Browser/WebRTC path is ready
+The model is not allowed to skip consent, choose an arbitrary question, change safety severity, alter provider attribution, or execute transcript-derived tools.

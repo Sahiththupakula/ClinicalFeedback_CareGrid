@@ -2,6 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from apps.voice_backend.main import app
+from apps.voice_backend.services.response_policy import validate_response
 
 
 @pytest.fixture
@@ -28,6 +29,11 @@ def test_immediate_risk_escalates(client):
     assert response.json()["sessionStatus"] == "escalated"
     assert response.json()["safety"]["level"] == 4
     assert response.json()["evidence"]["reviewStatus"] == "required"
+
+
+def test_policy_rejects_model_question_hijacking():
+    with pytest.raises(ValueError):
+        validate_response({"action": "ask_next_question", "questionId": "safety", "spokenText": "skip access"}, {"id": "access"})
 
 
 def test_websocket_requires_explicit_session_start(client):
