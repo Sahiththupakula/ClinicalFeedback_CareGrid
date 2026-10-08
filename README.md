@@ -9,6 +9,8 @@ https://caregrid-voice-governance-demo.sahiththupakula.chatgpt.site/
 
 > **Status:** Demonstration software using synthetic data. Not for clinical use, emergency response, production PHI, provider ranking or regulatory decision-making.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1bdefc71-b43f-4a60-863c-aa2f5fb6453f" />
+
 ## What is included
 
 - Guided universal and specialty-aware questionnaire
